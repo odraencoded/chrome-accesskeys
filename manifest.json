@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  
+  "name": "Accesskey Keyboard Shortcuts List",
+  "short_name": "Accesskeys",
+  "version": "0.1",
+  "description": "Shows the list of accesskey keyboard shortcuts of a webpage.",
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "page_action": {
+    "default_title": "View this page's accesskeys",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "19": "images/icon19.png",
+      "38": "images/icon38.png"
+    }
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["check-keys.js"]
+  }],
+  
+  "offline_enabled": true
+}
